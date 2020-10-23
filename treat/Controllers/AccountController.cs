@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 
-namespace Treat.Controllers
+namespace Treatontrollers
 {
   public class AccountController : Controller
   {
@@ -28,8 +28,8 @@ namespace Treat.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      var userHistory = _db.Checkouts.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      return View(userHistory);
+      // var userHistory = _db.Checkouts.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      return View();
     }
 
     public IActionResult Register()
