@@ -8,7 +8,7 @@
   <div class="std-btn">
     @if (signInManager.IsSignedIn(User))
     {
-      @Html.ActionLink("Treats", "Index","Treats", null, new { @class = "btn btn-info fa fa-gear"})
+      @Html.ActionLink("Snacks", "Index","Snacks", null, new { @class = "btn btn-info fa fa-gear"})
       @Html.ActionLink("Flavors", "Index","Flavors", null, new { @class = "btn btn-info fa fa-gear"})
       var currentUser = await userManager.GetUserAsync(User);
 
