@@ -6,8 +6,8 @@ namespace Treat.Models
   public class TreatContext : IdentityDbContext<ApplicationUser>
   {
     public virtual DbSet<Flavor> Flavors { get; set; }
-    public virtual DbSet<Treat> Treats { get; set; }
-    public DbSet<FlavorTreat> FlavorTreats { get; set; }
+    public virtual DbSet<Snack> Snacks { get; set; }
+    public DbSet<FlavorSnack> FlavorSnacks { get; set; }
 
     public TreatContext(DbContextOptions options) : base(options) { }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -38,20 +38,20 @@ namespace Treat.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    public ActionResult AddTreat(int id)
+    public ActionResult AddSnack(int id)
     {
-      Treat thisTreat = _db.Treats.FirstOrDefault(s => s.TreatId == id);
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
-      return View(thisTreat);
+      Snack thisSnack = _db.Snacks.FirstOrDefault(s => s.SnackId == id);
+      ViewBag.SnackId = new SelectList(_db.Snacks, "SnackId", "Name");
+      return View(thisSnack);
     }
     [HttpPost]
-    public ActionResult AddTreat(FlavorTreat flavorTreat)
+    public ActionResult AddSnack(FlavorSnack flavorSnack)
     {
-      if (flavorTreat.TreatId != 0)
+      if (flavorSnack.SnackId != 0)
       {
-        if (_db.FlavorTreats.Where(x => x.TreatId == flavorTreat.TreatId && x.TreatId == flavorTreat.TreatId).ToHashSet().Count == 0)
+        if (_db.FlavorSnacks.Where(x => x.SnackId == flavorSnack.SnackId && x.SnackId == flavorSnack.SnackId).ToHashSet().Count == 0)
         {
-          _db.FlavorTreats.Add(flavorTreat);
+          _db.FlavorSnacks.Add(flavorSnack);
         }
       }
       _db.SaveChanges();
