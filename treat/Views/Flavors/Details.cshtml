@@ -16,9 +16,9 @@
   }
 
   <ul>
-    @foreach (Snack snack in Model.Snacks)
+    @foreach (FlavorSnack flavorsnack in Model.Snacks)
     {
-      <li>@snack.Name</li>
+      <li>@flavorsnack.Snack.Name</li>
     }
   </ul>
   @Html.ActionLink("Edit Flavor","Edit", new {id=Model.FlavorId}, new { @class="btn btn-info" })

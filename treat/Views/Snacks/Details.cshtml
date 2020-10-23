@@ -5,20 +5,20 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h4>Flavors</h4>
+    <h4>Snacks</h4>
     <h1>@Model.Name </h1>
     <small>@Model.Disc</small>
   </div>
-  <h3>Snacks with this flavor:</h3>
+  <h3>Flavors this snack comes in:</h3>
   @if (Model.Flavors.Count == 0)
   {
     <p>@Model.Name has no Flavors availabe.</p>
   }
 
   <ul>
-    @foreach (Flavor flavor in Model.Flavors)
+    @foreach (FlavorSnack flavorsnack in Model.Flavors)
     {
-      <li>@flavor.Name</li>
+      <li>@flavorsnack.Flavor.Name</li>
     }
   </ul>
   @Html.ActionLink("Edit Snack","Edit", new {id=Model.SnackId}, new { @class="btn btn-info" })
