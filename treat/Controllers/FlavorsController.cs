@@ -40,18 +40,18 @@ namespace Treat.Controllers
     }
     public ActionResult AddSnack(int id)
     {
-      Snack thisSnack = _db.Snacks.FirstOrDefault(s => s.SnackId == id);
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(s => s.FlavorId == id);
       ViewBag.SnackId = new SelectList(_db.Snacks, "SnackId", "Name");
-      return View(thisSnack);
+      return View(thisFlavor);
     }
     [HttpPost]
-    public ActionResult AddSnack(FlavorSnack flavorSnack)
+    public ActionResult AddSnack(FlavorSnack flavorsnack)
     {
-      if (flavorSnack.SnackId != 0)
+      if (flavorsnack.SnackId != 0)
       {
-        if (_db.FlavorSnacks.Where(x => x.SnackId == flavorSnack.SnackId && x.SnackId == flavorSnack.SnackId).ToHashSet().Count == 0)
+        if (_db.FlavorSnacks.Where(x => x.FlavorId == flavorsnack.FlavorId && x.SnackId == flavorsnack.SnackId).ToHashSet().Count == 0)
         {
-          _db.FlavorSnacks.Add(flavorSnack);
+          _db.FlavorSnacks.Add(flavorsnack);
         }
       }
       _db.SaveChanges();

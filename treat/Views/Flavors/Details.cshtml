@@ -21,4 +21,7 @@
       <li>@snack.Name</li>
     }
   </ul>
+  @Html.ActionLink("Edit Flavor","Edit", new {id=Model.FlavorId}, new { @class="btn btn-info" })
+  @Html.ActionLink("Delete Flavor","Delete",new {id=Model.FlavorId}, new { @class="btn btn-info" })
+  @Html.ActionLink("Add a Snack","AddSnack",new {id=Model.FlavorId}, new { @class="btn btn-info" })
 </div>
