@@ -9,13 +9,13 @@
     <h1>@Model.Name </h1>
     <small>@Model.Disc</small>
   </div>
-  @if (Model.FlavorSnack.Count == 0)
+  @if (Model.Snacks.Count == 0)
   {
-    <p>@Model.Name has no Flavors availabe.</p>
+    <p> No Snacks availabe with @Model.Name</p>
   }
   <h3>Snacks with this flavor:</h3>
   <ul>
-    @foreach (Snack snack in Model.FlavorSnack)
+    @foreach (Snack snack in Model.Snacks)
     {
       <li>@snack.Name</li>
     }
