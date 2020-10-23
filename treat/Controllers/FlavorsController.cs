@@ -5,14 +5,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Treat.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace Treat.Controllers
 {
+  [Authorize]
   public class FlavorsController : Controller
   {
     private readonly TreatContext _db;
-    public FlavorsController(TreatContext db)
+    private readonly UserManager<ApplicationUser> _userManager;
+    public FlavorsController(UserManager<ApplicationUser> userManager, TreatContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
     public ActionResult Index()
