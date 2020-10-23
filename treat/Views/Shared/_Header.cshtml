@@ -1,0 +1,8 @@
+@using Microsoft.AspNetCore.Identity
+@using Library.Models
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="\">Pierre's Sweet and Savory Treats</a>
+
+  <button class="btn"><i class="fa fa-users"></i>@Html.ActionLink("Treats", "Index","Treats")</button>
+  <button class="btn"><i class="fa fa-cube"></i> @Html.ActionLink("Flavors", "Index","Flavors")</button>
+</nav>
