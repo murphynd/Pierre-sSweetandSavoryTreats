@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Treat.Models.Flavor
+<div class="container">
+  <div class="jumbotron">
+    <h4>Flavors</h4>
+    <h1>Edit</h1>
+  </div>
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name,
+  new {@required="required"})
+    @Html.LabelFor(model => model.Disc)
+    @Html.TextBoxFor(model => model.Disc,
+  new {@required="required"})
+    <input type="submit" value="save" class="btn btn-default" />
+  }
+</div>
