@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+@using Treat.Models;
+
+<div class="container">
+  <div class="jumbotron">
+    <h4>Flavors</h4>
+    <h1>@Model.Name </h1>
+    <small>@Model.Disc</small>
+  </div>
+  @if (Model.FlavorSnack.Count == 0)
+  {
+    <p>@Model.Name has no Flavors availabe.</p>
+  }
+  <h3>Snacks with this flavor:</h3>
+  <ul>
+    @foreach (Flavor flavor in Model.FlavorSnack)
+    {
+      <li>@flavor.Name</li>
+    }
+  </ul>
+</div>
