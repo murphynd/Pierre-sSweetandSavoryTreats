@@ -6,7 +6,7 @@ namespace Treat.Models
 {
   public class DesignTimeDbContextTreat
   {
-    public class TreatContextTreat : IDesignTimeDbContextTreat<TreatContext>
+    public class TreatContextTreat : IDesignTimeDbContextFactory<TreatContext>
     {
 
       TreatContext IDesignTimeDbContextFactory<TreatContext>.CreateDbContext(string[] args)
