@@ -1,5 +1,12 @@
 @{
   Layout = "_Layout";
 }
-@Html.ActionLink("Log in", "Login","Account", null, new { @class = "btn btn-info fa fa-user"})
-@Html.ActionLink(" ManageUser", "Index", "ManageUsers", null, new { @class = "btn btn-info fa fa-gear"})
+<div class="container">
+  <div class="jumbotron">
+    <h2>Sweet and Savory Treats</h2>
+    <h1>Welcome to Pierre's </h1>
+
+    <h4>Login to see the details on snacks and flavors.</h4>
+    @Html.ActionLink(" Log in", "Login","Account", null, new { @class = "btn btn-info fa fa-user"})
+    @Html.ActionLink(" Register", "Register","Account", null, new { @class = "btn btn-info fa fa-user"})
+  </div>

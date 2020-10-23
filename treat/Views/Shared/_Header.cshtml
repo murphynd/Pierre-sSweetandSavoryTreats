@@ -2,39 +2,39 @@
 @using Treat.Models
 @inject SignInManager<ApplicationUser> signInManager
 @inject UserManager<ApplicationUser> userManager
-
-<nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="\">Pierre's Sweet and Savory Treats</a>
-  <div class="std-btn">
-    @if (signInManager.IsSignedIn(User))
-    {
-      @Html.ActionLink("Snacks", "Index","Snacks", null, new { @class = "btn btn-info fa fa-gear"})
-      @Html.ActionLink("Flavors", "Index","Flavors", null, new { @class = "btn btn-info fa fa-gear"})
-      var currentUser = await userManager.GetUserAsync(User);
-
-      var isAdmin = currentUser != null
-        && await userManager.IsInRoleAsync(
-    currentUser,
-    Constants.AdministratorRole);
-
-      if (isAdmin)
+<div class="container">
+  <nav class="navbar fixed-top navbar-light bg-light">
+    <a class="navbar-brand" href="\">Pierre's Sweet and Savory Treats</a>
+    <div class="std-btn">
+      @if (signInManager.IsSignedIn(User))
       {
-        @Html.ActionLink(" Manage Users", "Index", "ManageUsers", null, new { @class = "btn btn-info fa fa-gear"})
+        @Html.ActionLink("Snacks", "Index","Snacks", null, new { @class = "btn btn-info fa fa-gear"})
+        @Html.ActionLink("Flavors", "Index","Flavors", null, new { @class = "btn btn-info fa fa-gear"})
+        var currentUser = await userManager.GetUserAsync(User);
+
+        var isAdmin = currentUser != null
+          && await userManager.IsInRoleAsync(
+        currentUser,
+        Constants.AdministratorRole);
+
+        if (isAdmin)
+        {
+          @Html.ActionLink(" Manage Users", "Index", "ManageUsers", null, new { @class = "btn btn-info fa fa-gear"})
+        }
       }
+      </div>
+      @if (User.Identity.IsAuthenticated)
+    {
+      <div class="userinfo">
+        @User.Identity.Name
+        @Html.ActionLink("Log Off", "Index","Account", null, new { @class = "btn btn-info"})
+      </div>
     }
-    </div>
-    @if (User.Identity.IsAuthenticated)
-  {
-    <div class="userinfo">
-      @User.Identity.Name
-      @Html.ActionLink("Log Off", "Index","Account", null, new { @class = "btn btn-info"})
-    </div>
-  }
-  else
-  {
-    <div class="userinfo">
-      @Html.ActionLink(" Log in", "Login", "Account", null, new { @class = "btn btn-info fa fa-plus" })
-    </div>
-  }
-</nav>
-</div
+    else
+    {
+      <div class="userinfo">
+        @Html.ActionLink(" Log in", "Login", "Account", null, new { @class = "btn btn-info fa fa-user" })
+      </div>
+    }
+  </nav>
+</div>

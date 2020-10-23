@@ -2,47 +2,50 @@
 @{
   Layout = "_Layout";
 }
+<div class="container">
+  <div class="jumbotron">
+    @{
+      ViewData["Title"] = "Manage users";
+    }
 
-@{
-  ViewData["Title"] = "Manage users";
-}
+    <h2>@ViewData["Title"]</h2>
 
-<h2>@ViewData["Title"]</h2>
+    <h3>Administrators</h3>
 
-<h3>Administrators</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Id</td>
+          <td>Email</td>
+        </tr>
+      </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td>Id</td>
-      <td>Email</td>
-    </tr>
-  </thead>
+      @foreach (var user in Model.Administrators)
+      {
+        <tr>
+          <td>@user.Id</td>
+          <td>@user.UserName</td>
+        </tr>
+      }
+    </table>
 
-  @foreach (var user in Model.Administrators)
-  {
-    <tr>
-      <td>@user.Id</td>
-      <td>@user.UserName</td>
-    </tr>
-  }
-</table>
+    <h3>Everyone</h3>
 
-<h3>Everyone</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Id</td>
+          <td>Email</td>
+        </tr>
+      </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td>Id</td>
-      <td>Email</td>
-    </tr>
-  </thead>
-
-  @foreach (var user in Model.Everyone)
-  {
-    <tr>
-      <td>@user.Id</td>
-      <td>@user.UserName</td>
-    </tr>
-  }
-</table>
+      @foreach (var user in Model.Everyone)
+      {
+        <tr>
+          <td>@user.Id</td>
+          <td>@user.UserName</td>
+        </tr>
+      }
+    </table>
+  </div>
+</div>
