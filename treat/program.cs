@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Treat
 {
-    public class Program
+  public class Program
   {
     public static void Main(string[] args)
     {
@@ -21,7 +21,7 @@ namespace Treat
         .UseIISIntegration()
         .UseStartup<Startup>()
         .Build();
-        InitializeDatabase(host);
+      // InitializeDatabase(host);
 
       host.Run();
     }
