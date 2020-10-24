@@ -1,6 +1,4 @@
-]
-
-# _Pierre Sweet & Savory_
+# _🥐 Pierre Sweet & Savory 🍰_
 
 #### _Week 5 C# ASP.NET MCV w/ MySQL Project for Epicodus, October 23rd, 2020_
 
